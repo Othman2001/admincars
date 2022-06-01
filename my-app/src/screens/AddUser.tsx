@@ -1,13 +1,12 @@
 import React from "react";
 import LayoutComponent from "../components/Layout";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { addDoc, collection, doc, getFirestore } from "firebase/firestore";
-import { getApp } from "firebase/app";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { Firebase } from "../firebase";
 // @ts-ignore
 
-export const AddUser: React.FC<{}> = () => {
+export const AddUser = () => {
   const onFinish = (values: {
     Email: string;
     password: string;
