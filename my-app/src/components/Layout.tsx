@@ -8,6 +8,8 @@ import {
   IdcardOutlined,
   ShopOutlined,
 } from "@ant-design/icons";
+import logo from "./logo.png";
+import "./navbar.css";
 
 const { Header, Content, Footer, Sider } = Layout;
 type MenuItem = Required<MenuProps>["items"][number];
@@ -34,26 +36,29 @@ function LayoutComponent({ children }: { children: React.ReactNode }) {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh", backgroundColor: "#265A60" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Sider
+        className="nav"
         style={{
-          backgroundColor: "#265A60",
-          minHeight: "100vh",
+          backgroundColor: "#fff",
+          borderRadius: 30,
         }}
         collapsed={true}
         onCollapse={(value) => setCollapsed(value)}
       >
         <Menu
           style={{
-            backgroundColor: "#265A60",
+            backgroundColor: "#fff",
             color: "#fff",
+            borderRadius: 30,
+            marginTop: 50,
           }}
           defaultSelectedKeys={["1"]}
           mode="inline"
         >
           <Menu.Item key="1">
             <Link to="/">
-              <PieChartOutlined />
+              <PieChartOutlined width="300px" />
               <span>Dashboard</span>
             </Link>
           </Menu.Item>
@@ -83,29 +88,17 @@ function LayoutComponent({ children }: { children: React.ReactNode }) {
           className="site-layout-background"
           style={{ padding: 0, backgroundColor: "#ffffff" }}
         >
-          {/* <Row>
-            <Col
-              style={{
-                marginLeft: 30,
-                fontSize: 24,
-              }}
-              span={20}
-            >
-              Car Saviors
-            </Col>
-            <Col span={1}>
-              <Button
-                style={{
-                  backgroundColor: "#265A60",
-                  color: "#fff",
-                }}
-              >
-                Log Out
-              </Button>
-            </Col>
-          </Row> */}
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              width: 50,
+              height: 50,
+              marginLeft: 40,
+            }}
+          />
         </Header>
-        <Content style={{ margin: "0 16px" }}>
+        <Content style={{ margin: "0 100px" }}>
           <div
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}

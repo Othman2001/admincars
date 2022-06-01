@@ -1,3 +1,4 @@
+import { DriversTable } from "../components/DriversTable";
 import LayoutComponent from "../components/Layout";
 
 export default function Drivers() {
@@ -5,7 +6,7 @@ export default function Drivers() {
     <>
       <LayoutComponent>
         <>
-          <h1>drivers page </h1>
+          <DriversTable />
         </>
       </LayoutComponent>
     </>

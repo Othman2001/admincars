@@ -1,14 +1,17 @@
 import { IContext, createOvermind } from "overmind";
 import { namespaced } from "overmind/config";
-import * as state from "../store/state";
+import { state } from "../store/state";
 import {
   createStateHook,
   createActionsHook,
   createEffectsHook,
 } from "overmind-react";
-
+import * as effects from "../store/effects";
+import * as actions from "../store/actions";
 const admin = {
   state,
+  effects,
+  actions,
 };
 export const config = namespaced({
   admin,

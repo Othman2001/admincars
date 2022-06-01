@@ -1,0 +1,9 @@
+.nav {
+  position: fixed !important;
+  border-top-right-radius: 20px !important;
+  margin-bottom: 80px !important;
+  margin-top: 80px !important;
+  top: 0 !important;
+  border-bottom-right-radius: 20px !important;
+  height: 80vh;
+}

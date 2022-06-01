@@ -6,6 +6,7 @@ import "antd/dist/antd.css";
 import { Dashboard } from "./screens/Dashboard";
 import Drivers from "./screens/Drivers";
 import Workshops from "./screens/Workshops";
+import { AddUser } from "./screens/AddUser";
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/users/add" element={<AddUser />} />
+
         <Route path="/drivers" element={<Drivers />} />
         <Route path="/workshops" element={<Workshops />} />
       </Routes>
