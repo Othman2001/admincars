@@ -7,3 +7,16 @@
   border-bottom-right-radius: 20px !important;
   height: 80vh;
 }
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    position: relative !important;
+  }
+  .layout {
+    margin: 0px 0px !important;
+  }
+}
+
+.layout {
+  margin: 0px 100px;
+}

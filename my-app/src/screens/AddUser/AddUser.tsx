@@ -1,12 +1,18 @@
-import React from "react";
-import LayoutComponent from "../components/Layout";
+import LayoutComponent from "../../components/Layout/Layout";
 import { Form, Input, Button } from "antd";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { Firebase } from "../firebase";
-// @ts-ignore
+import { Firebase } from "../../firebase";
+import { useActions, useAppState } from "../../services/config";
+import { create } from "domain";
 
 export const AddUser = () => {
+  const {
+    admin: { createUser },
+  } = useActions();
+  const {
+    admin: { error },
+  } = useAppState();
   const onFinish = (values: {
     Email: string;
     password: string;
@@ -15,31 +21,20 @@ export const AddUser = () => {
     phoneNumber: string;
   }) => {
     console.log(values, "values");
-    // @ts-ignore
-    const auth = getAuth(Firebase);
-    // @ts-ignore
-    const db = getFirestore(Firebase);
-    const userDoc = collection(db, "users");
-
-    createUserWithEmailAndPassword(auth, values.Email, values.password).then(
-      (user) => {
-        addDoc(userDoc, {
-          id: user.user.uid,
-          firstName: values.FirstName,
-          lastName: values.lastname,
-          phoneNumber: values.phoneNumber,
-          email: values.Email,
-          role: "user",
-        });
-      }
-    );
+    createUser({
+      email: values.Email,
+      firstName: values.FirstName,
+      lastName: values.lastname,
+      password: values.password,
+      role: "user",
+    });
   };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <LayoutComponent>
+    <LayoutComponent selectedKey="2">
       <div
         style={{
           marginTop: 50,
