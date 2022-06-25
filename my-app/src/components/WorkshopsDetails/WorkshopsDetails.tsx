@@ -1,8 +1,4 @@
-import { Button, Col, Row } from "antd";
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import LayoutComponent from "../../components/Layout/Layout";
-import { useActions, useAppState } from "../../services/config";
+import { Col, Row } from "antd";
 import { CardComponent } from "./Card";
 
 interface IWorkshopDetailsProps {
@@ -10,10 +6,6 @@ interface IWorkshopDetailsProps {
 }
 
 export const WorkshopsDetails = ({ workshops }: IWorkshopDetailsProps) => {
-  useEffect(() => {
-    console.log(workshops, "state");
-  }, []);
-
   return (
     <>
       <Row>

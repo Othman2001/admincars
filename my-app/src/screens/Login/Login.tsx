@@ -9,6 +9,7 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { Firebase } from "../../firebase";
 import { useActions } from "../../services/config";
+import logo from "./logo.png";
 
 export const Login = () => {
   let navigate = useNavigate();
@@ -62,6 +63,25 @@ export const Login = () => {
           paddingTop: 150,
         }}
       >
+        <h1
+          style={{
+            margin: "0 auto",
+          }}
+        >
+          {" "}
+          Welcome to Car Saviors Dashboard , Please Login{" "}
+        </h1>
+        <img
+          src={logo}
+          alt="logo"
+          style={{
+            width: 150,
+            height: 150,
+            margin: "0 auto",
+            marginBottom: 30,
+          }}
+        />
+
         <Form
           name="basic"
           labelCol={{ span: 8 }}
@@ -88,7 +108,7 @@ export const Login = () => {
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" style={{}} htmlType="submit">
               Login
             </Button>
           </Form.Item>
