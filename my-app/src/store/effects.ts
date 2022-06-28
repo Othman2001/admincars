@@ -34,21 +34,21 @@ export const loadFirebaseUser = async (
 
 export const fetchUsers = async () => {
   const response = await axios.get(
-    "https://us-central1-car-saviors.cloudfunctions.net/fetchUsers"
+    "http://localhost:5001/car-saviors/us-central1/fetchUsers"
   );
   return response.data;
 };
 
 export const fetchDrivers = async () => {
   const response = await axios.get(
-    "https://us-central1-car-saviors.cloudfunctions.net/fetchDriversAdmin"
+    "http://localhost:5001/car-saviors/us-central1/fetchDriversAdmin"
   );
   return response.data.drivers;
 };
 
 export const fetchBrands = async () => {
   const response = await axios.get(
-    "https://us-central1-car-saviors.cloudfunctions.net/fetchBrands"
+    "http://localhost:5001/car-saviors/us-central1/fetchBrands"
   );
   return response.data;
 };

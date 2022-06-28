@@ -1,10 +1,7 @@
 import LayoutComponent from "../../components/Layout/Layout";
 import { Form, Input, Button } from "antd";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
-import { Firebase } from "../../firebase";
 import { useActions, useAppState } from "../../services/config";
-import { create } from "domain";
+import { useEffect } from "react";
 
 export const AddUser = () => {
   const {
@@ -33,6 +30,9 @@ export const AddUser = () => {
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
+  useEffect(() => {
+    error && alert(error);
+  }, [error]);
   return (
     <LayoutComponent selectedKey="2">
       <div
@@ -41,6 +41,7 @@ export const AddUser = () => {
           marginLeft: 30,
         }}
       >
+        {error}
         <Form
           name="basic"
           labelCol={{ span: 5 }}

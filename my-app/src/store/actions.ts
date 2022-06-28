@@ -59,7 +59,11 @@ export const createUser: AsyncAction<{
   //   @ts-ignore
   await effects.admin
     .createUser(email, password, firstName, lastName, role)
-    .catch((error: any) => {
-      admin.error = error;
+    .then((res) => {
+      console.log(res.data, "Res");
+      window.location.reload();
+    })
+    .catch((error) => {
+      admin.error = "there is an error , user is already created before";
     });
 };

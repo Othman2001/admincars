@@ -1,12 +1,5 @@
 import { Button, Form, Input } from "antd";
-import {
-  addDoc,
-  collection,
-  doc,
-  getFirestore,
-  setDoc,
-} from "firebase/firestore";
-import { useEffect } from "react";
+import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import LayoutComponent from "../../components/Layout/Layout";
 import { Firebase } from "../../firebase";
@@ -45,6 +38,8 @@ export const AddWorkshop = () => {
         latitude: parseFloat(values.lat),
         longitude: parseFloat(values.lng),
       },
+    }).then((res) => {
+      window.location.reload();
     });
   };
   return (
