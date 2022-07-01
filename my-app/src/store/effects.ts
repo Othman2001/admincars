@@ -5,6 +5,8 @@ import {
   getFirestore,
   collection,
   where,
+  doc,
+  getDoc,
 } from "firebase/firestore";
 import { Firebase } from "../firebase";
 import {
@@ -23,12 +25,22 @@ export const loadFirebaseUser = async (
   onNoUserFound: () => void
 ) => {
   const auth = getAuth();
+
   onAuthStateChanged(auth, (user) => {
-    if (user) {
-      onUserStateChanged(user);
-    } else {
-      onNoUserFound();
-    }
+    const db = getFirestore(Firebase);
+    const adminCollection = doc(db, `admins/${user?.uid}`);
+    getDoc(adminCollection).then((docSnap) => {
+      if (docSnap.exists() && user) {
+        onUserStateChanged(user);
+      } else {
+        onNoUserFound();
+      }
+    });
+    // if (user) {
+    //   onUserStateChanged(user);
+    // } else {
+    //   onNoUserFound();
+    // }
   });
 };
 

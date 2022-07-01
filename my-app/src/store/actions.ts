@@ -5,6 +5,7 @@ export const onInitializeOvermind: AsyncAction = async ({ state, effects }) => {
   await effects.admin.loadFirebaseUser(
     (user) => {
       state.admin.user = user;
+
       state.admin.didInitialize = true;
       state.admin.isAdmin = true;
     },
@@ -38,7 +39,6 @@ export const fetchWorkshops: AsyncAction<{ name: string }> = async (
 
 export const setUser: Action<{ user: User }> = ({ state }, { user }) => {
   state.admin.user = user;
-  state.admin.isAdmin = true;
 };
 
 export const signOut: AsyncAction = async ({ state, effects }) => {
@@ -66,4 +66,11 @@ export const createUser: AsyncAction<{
     .catch((error) => {
       admin.error = "there is an error , user is already created before";
     });
+};
+
+export const setIsAdmin: Action<{ isAdmin: boolean }> = (
+  { state },
+  { isAdmin }
+) => {
+  state.admin.isAdmin = isAdmin;
 };

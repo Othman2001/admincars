@@ -14,8 +14,9 @@ import logo from "./logo.png";
 export const Login = () => {
   let navigate = useNavigate();
   const {
-    admin: { setUser },
+    admin: { setUser, setIsAdmin },
   } = useActions();
+
   const onFinish = (values: { email: string; password: string }) => {
     const auth = getAuth(Firebase);
     signInWithEmailAndPassword(auth, values.email, values.password)
@@ -32,11 +33,11 @@ export const Login = () => {
             getDoc(adminCollection).then((docSnap) => {
               if (docSnap.exists()) {
                 //   @ts-ignore
-                setUser(user.user);
-                console.log(user, "user@");
-                navigate("/", { replace: true });
+                setUser({ user });
+                setIsAdmin({ isAdmin: true });
               } else {
                 alert("you are not admin");
+                navigate("/", { replace: true });
               }
             });
             return result.user;
