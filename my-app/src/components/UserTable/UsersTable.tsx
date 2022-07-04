@@ -37,6 +37,7 @@ export default function UsersTable({
         phoneNumber: users[i]?.phoneNumber || null,
         firstName: users[i].firstName,
         lastName: users[i].lastName,
+        email: users[i].email,
       });
     }
     setData(data);

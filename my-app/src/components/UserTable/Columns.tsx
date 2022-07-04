@@ -31,6 +31,12 @@ const Columns: ColumnsType<DataType> = [
     render: (text) => <p>{text}</p>,
   },
   {
+    title: "Email",
+    dataIndex: "email",
+    key: "email",
+    render: (text) => <p>{text}</p>,
+  },
+  {
     title: "Phone Number",
     dataIndex: "phoneNumber",
     key: "phoneNumber",

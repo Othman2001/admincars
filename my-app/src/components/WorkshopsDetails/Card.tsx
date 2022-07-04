@@ -17,11 +17,14 @@ export const CardComponent = ({
       <div className="site-card-border-less-wrapper">
         <Card
           title={`${title}Workshop`}
-          bordered={false}
-          style={{ width: 300 }}
+          bordered={true}
+          style={{
+            width: 500,
+            marginBottom: 10,
+          }}
         >
           <h3> brand {brandName} </h3>
-          <h4> {description} </h4>
+          <h4 style={{}}> {description} </h4>
           <ModalComponent brandName={brandName} workshopName={title} />
 
           <Button

@@ -18,6 +18,8 @@ export const AddWorkshop = () => {
     lng: string;
     name: string;
     openHours: number;
+    locationAr: string;
+    phoneNumber: string;
   }) => {
     const db = getFirestore(Firebase);
 
@@ -32,6 +34,8 @@ export const AddWorkshop = () => {
       description: values.description,
       descriptionAr: values.descriptionAr,
       location: values.location,
+      locationAr: values.locationAr,
+      phoneNumber: values.phoneNumber,
       distance: 0,
       id: `2001232${Math.floor(Math.random() * 100)}`,
       geopoint: {
@@ -109,6 +113,18 @@ export const AddWorkshop = () => {
           >
             <Input type="number" />
           </Form.Item>
+          <Form.Item
+            label="Phone Number"
+            name="phoneNumber"
+            rules={[
+              {
+                required: true,
+                message: "please enter Phone Number ",
+              },
+            ]}
+          >
+            <Input type="number" />
+          </Form.Item>
 
           <Form.Item
             label="location lattitude"
@@ -141,6 +157,18 @@ export const AddWorkshop = () => {
               {
                 required: true,
                 message: "please enter Location address",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="location Ar"
+            name="locationAr"
+            rules={[
+              {
+                required: true,
+                message: "please enter Location address In Arabic",
               },
             ]}
           >

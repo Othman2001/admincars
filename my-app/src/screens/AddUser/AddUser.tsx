@@ -25,6 +25,7 @@ export const AddUser = () => {
       password: values.password,
       role: "user",
     });
+    window.location.reload();
   };
 
   const onFinishFailed = (errorInfo: any) => {

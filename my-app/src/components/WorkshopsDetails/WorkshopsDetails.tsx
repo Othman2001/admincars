@@ -9,15 +9,23 @@ export const WorkshopsDetails = ({ workshops }: IWorkshopDetailsProps) => {
   return (
     <>
       <Row>
-        {workshops?.map((workshop: any) => {
+        {workshops?.map((workshop: any, index: any) => {
           return (
-            <Col span={8}>
-              <CardComponent
-                title={workshop.title}
-                description={workshop.description}
-                brandName={workshop.brand}
-              />
-            </Col>
+            <div
+              style={{
+                marginLeft: 10,
+                marginRight: 10,
+              }}
+            >
+              <Col span={6} key={index}>
+                <CardComponent
+                  title={workshop.title}
+                  description={workshop.description}
+                  brandName={workshop.brand}
+                  key={index}
+                />
+              </Col>
+            </div>
           );
         })}
       </Row>
