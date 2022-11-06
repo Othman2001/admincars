@@ -36,31 +36,26 @@ export const loadFirebaseUser = async (
         onNoUserFound();
       }
     });
-    // if (user) {
-    //   onUserStateChanged(user);
-    // } else {
-    //   onNoUserFound();
-    // }
   });
 };
 
 export const fetchUsers = async () => {
   const response = await axios.get(
-    "http://localhost:5001/car-saviors/us-central1/fetchUsers"
+    "https://us-central1-car-saviors.cloudfunctions.net/fetchUsers"
   );
   return response.data;
 };
 
 export const fetchDrivers = async () => {
   const response = await axios.get(
-    "http://localhost:5001/car-saviors/us-central1/fetchDriversAdmin"
+    "https://us-central1-car-saviors.cloudfunctions.net/fetchDrivers"
   );
   return response.data.drivers;
 };
 
 export const fetchBrands = async () => {
   const response = await axios.get(
-    "http://localhost:5001/car-saviors/us-central1/fetchBrands"
+    "https://us-central1-car-saviors.cloudfunctions.net/fetchBrands"
   );
   return response.data;
 };
@@ -114,7 +109,7 @@ export const createUser = async (
   role: string
 ) => {
   const user = await axios.post(
-    "http://localhost:5001/car-saviors/us-central1/createUserAdmin",
+    "https://us-central1-car-saviors.cloudfunctions.net/createUserAdmin",
     {
       email,
       password,
